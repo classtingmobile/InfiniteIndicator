@@ -3,6 +3,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 version = "1.1.0"
+group = 'com.github.classtingmobile'
 
 android {
     compileSdkVersion 23
