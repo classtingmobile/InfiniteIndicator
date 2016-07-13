@@ -134,16 +134,24 @@ public class InfiniteIndicator extends RelativeLayout implements RecyclingPagerA
         }
     }
 
+    public void setAuto(boolean auto) {
+        isAutoScroll = auto;
+    }
+
 
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        start();
+        if (isAutoScroll) {
+            start();
+        }
     }
 
     @Override
     protected void onDetachedFromWindow() {
-        stop();
+        if (isAutoScroll) {
+            stop();
+        }
         super.onDetachedFromWindow();
     }
 
@@ -164,8 +172,7 @@ public class InfiniteIndicator extends RelativeLayout implements RecyclingPagerA
      * start auto scroll, first scroll delay time is {@link #getInterval()}
      */
     public void start() {
-        if (mRecyleAdapter.getRealCount() > 1 && isAutoScroll == false) {
-            isAutoScroll = true;
+        if (mRecyleAdapter.getRealCount() > 1 && isAutoScroll) {
             sendScrollMessage(interval);
         }
     }
@@ -176,8 +183,7 @@ public class InfiniteIndicator extends RelativeLayout implements RecyclingPagerA
      * @param delayTimeInMills first scroll delay time
      */
     public void start(int delayTimeInMills) {
-        if (mRecyleAdapter.getRealCount() > 1 && isAutoScroll == false) {
-            isAutoScroll = true;
+        if (mRecyleAdapter.getRealCount() > 1 && isAutoScroll) {
             sendScrollMessage(delayTimeInMills);
         }
     }
