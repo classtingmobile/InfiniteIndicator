@@ -6,6 +6,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -32,10 +35,10 @@ public class AnimIndicatorActivity extends FragmentActivity implements ViewPager
 
     private void initData() {
         pageViews = new ArrayList<>();
-        pageViews.add(new Page("A ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/a.jpg",this));
-        pageViews.add(new Page("B ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/b.jpg",this));
-        pageViews.add(new Page("C ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/c.jpg",this));
-        pageViews.add(new Page("D ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/d.jpg",this));
+        pageViews.add(new Page("A ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/a.jpg", "href", "action_type", this));
+        pageViews.add(new Page("B ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/b.jpg", "href", "action_type", this));
+        pageViews.add(new Page("C ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/c.jpg", "href", "action_type", this));
+//        pageViews.add(new Page("D ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/d.jpg",this));
         
     }
 
@@ -69,10 +72,17 @@ public class AnimIndicatorActivity extends FragmentActivity implements ViewPager
 
     private void testAnimCircleIndicator() {
         mAnimCircleIndicator = (InfiniteIndicator)findViewById(R.id.infinite_anim_circle);
-        mAnimCircleIndicator.setImageLoader(new UILoader());
+        mAnimCircleIndicator.setImageLoader(new GlideLoader());
         mAnimCircleIndicator.addPages(pageViews);
-        mAnimCircleIndicator.setPosition(InfiniteIndicator.IndicatorPosition.Center);
+        mAnimCircleIndicator.setPosition();
         mAnimCircleIndicator.setOnPageChangeListener(this);
+
+        mAnimCircleIndicator.setAuto(true);
+        mAnimCircleIndicator.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 600));
+        mAnimCircleIndicator.setPageWidth(1080);
+        mAnimCircleIndicator.setPageHeight(600);
+        mAnimCircleIndicator.setClipPadding(0);
+        mAnimCircleIndicator.reset();
     }
 
     private void testAnimLineIndicator() {
@@ -80,6 +90,13 @@ public class AnimIndicatorActivity extends FragmentActivity implements ViewPager
         mAnimLineIndicator.setImageLoader(new PicassoLoader());
         mAnimLineIndicator.addPages(pageViews);
         mAnimLineIndicator.setPosition(InfiniteIndicator.IndicatorPosition.Center);
+
+        mAnimLineIndicator.setAuto(true);
+        mAnimLineIndicator.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 600));
+        mAnimLineIndicator.setPageWidth(1080);
+        mAnimLineIndicator.setPageHeight(600);
+        mAnimLineIndicator.setClipPadding(0);
+        mAnimLineIndicator.reset();
     }
 
     @Override

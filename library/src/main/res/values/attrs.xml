@@ -54,10 +54,10 @@
     </declare-styleable>
 
     <declare-styleable name="InfiniteIndicator">
-     <attr name="indicator_type" format="enum">
-         <enum name="indicator_default" value="0"/>
-         <enum name="indicator_anim_circle" value="1"/>
-         <enum name="indicator_anim_line" value="2"/>
-     </attr>
+        <attr name="indicator_type" format="enum">
+            <enum name="indicator_default" value="0"/>
+            <enum name="indicator_anim_circle" value="1"/>
+            <enum name="indicator_anim_line" value="2"/>
+        </attr>
  </declare-styleable>
 </resources>

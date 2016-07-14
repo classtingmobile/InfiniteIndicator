@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.RelativeLayout;
 
@@ -35,7 +36,7 @@ public class InfiniteIndicator extends RelativeLayout implements RecyclingPagerA
     private Context mContext;
     private RecyleAdapter mRecyleAdapter;
 
-    public static final int DEFAULT_INTERVAL = 2500;
+    public static final int DEFAULT_INTERVAL = 6000;
     public static final int LEFT = 0;
     public static final int RIGHT = 1;
     /**
@@ -75,6 +76,14 @@ public class InfiniteIndicator extends RelativeLayout implements RecyclingPagerA
     private boolean isAutoScroll = false;
     private boolean isStopByTouch = false;
     private float touchX = 0f, downX = 0f;
+
+    /**
+     *  for learningcard
+     *  width, height, clipToPadding
+     */
+    private int pageWidth = 0;
+    private int pageHeight = 0;
+    private int pagerClipPadding = 0;
 
     /**
      * Custome Scroller for
@@ -138,6 +147,26 @@ public class InfiniteIndicator extends RelativeLayout implements RecyclingPagerA
         isAutoScroll = auto;
     }
 
+    public void setPageWidth(int width) {
+        pageWidth = width;
+    }
+
+    public void setPageHeight(int height) {
+        pageHeight = height;
+    }
+
+    public void setClipPadding(int clipToPadding) {
+        pagerClipPadding = clipToPadding;
+    }
+
+    public void reset() {
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, pageHeight);
+        mViewPager.setLayoutParams(params);
+        mViewPager.setPadding(pagerClipPadding, 0, pagerClipPadding, 0);
+        mRecyleAdapter.setPageWidth(pageWidth);
+        mRecyleAdapter.setPageHeight(pageHeight);
+        mRecyleAdapter.notifyDataSetChanged();
+    }
 
     @Override
     protected void onAttachedToWindow() {

@@ -34,29 +34,29 @@ public class UpdateSlidersActivity extends FragmentActivity{
     private void updateTest() {
         mAnimCircleIndicator = (InfiniteIndicator) findViewById(R.id.infinite_anim_circle);
 
-        final Page a = new Page("update same size list", R.drawable.a);
-        final Page b = new Page("update smaller size list", R.drawable.b);
-        final Page c = new Page("update larger size list", R.drawable.c);
-        final Page d = new Page("Leave a launcher", R.drawable.d);
+        final Page a = new Page("update same size list", R.drawable.a, "href", "action_type");
+        final Page b = new Page("update smaller size list", R.drawable.b, "href", "action_type");
+        final Page c = new Page("update larger size list", R.drawable.c, "href", "action_type");
+        final Page d = new Page("Leave a launcher", R.drawable.d, "href", "action_type");
 
-        final Page e = new Page("", R.drawable.c_yypd);
-        final Page f = new Page("", R.drawable.b_yypd);
-        final Page g = new Page("", R.drawable.c_yypd);
-        final Page h = new Page("", R.drawable.ic_launcher);
+        final Page e = new Page("", R.drawable.c_yypd, "href", "action_type");
+        final Page f = new Page("", R.drawable.b_yypd, "href", "action_type");
+        final Page g = new Page("", R.drawable.c_yypd, "href", "action_type");
+        final Page h = new Page("", R.drawable.ic_launcher, "href", "action_type");
 
         a.onPageClickListener = new OnPageClickListener() {
 
             @Override
             public void onPageClick(int position, Page page) {
-//                a.res = R.drawable.a_yypd;
-//                b.res = R.drawable.b_yypd;
-//                c.res = R.drawable.c_yypd;
-//                d.res = R.drawable.d_yypd;
+//                a.url = R.drawable.a_yypd;
+//                b.url = R.drawable.b_yypd;
+//                c.url = R.drawable.c_yypd;
+//                d.url = R.drawable.d_yypd;
 
-                a.res = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/a.jpg";
-                b.res = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/b.jpg";
-                c.res = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/c.jpg";
-                d.res = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/d.jpg";
+                a.url = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/a.jpg";
+                b.url = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/b.jpg";
+                c.url = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/c.jpg";
+                d.url = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/d.jpg";
 
                 pageViews.clear();
                 pageViews.add(a);
@@ -75,8 +75,8 @@ public class UpdateSlidersActivity extends FragmentActivity{
 
             @Override
             public void onPageClick(int position, Page page) {
-                a.res = R.drawable.a_yypd;
-                b.res = R.drawable.b_yypd;
+                a.url = R.drawable.a_yypd;
+                b.url = R.drawable.b_yypd;
 
                 pageViews.clear();
                 pageViews.add(a);
@@ -95,10 +95,10 @@ public class UpdateSlidersActivity extends FragmentActivity{
             public void onPageClick(int position, Page page) {
                 pageViews.clear();
 
-                a.res = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/a.jpg";
-                b.res = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/b.jpg";
-                c.res = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/c.jpg";
-                d.res = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/d.jpg";
+                a.url = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/a.jpg";
+                b.url = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/b.jpg";
+                c.url = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/c.jpg";
+                d.url = "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/d.jpg";
 
                 pageViews.add(a);
                 pageViews.add(e);
@@ -119,7 +119,7 @@ public class UpdateSlidersActivity extends FragmentActivity{
 
             @Override
             public void onPageClick(int position, Page page) {
-                a.res = R.drawable.ic_launcher;
+                a.url = R.drawable.ic_launcher;
 
                 pageViews.clear();
                 pageViews.add(a);

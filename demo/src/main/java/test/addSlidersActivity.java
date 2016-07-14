@@ -29,10 +29,10 @@ public class AddSlidersActivity extends FragmentActivity implements OnPageClickL
     private void addSlidersTest() {
         mAnimCircleIndicator = (InfiniteIndicator) findViewById(R.id.infinite_anim_circle);
         pageViews = new ArrayList<Page>();
-        pageViews.add(new Page("Page A", R.drawable.a));
-        pageViews.add(new Page("Page B", R.drawable.b));
-        pageViews.add(new Page("Page C", R.drawable.c));
-        pageViews.add(new Page("Page D", R.drawable.d));
+        pageViews.add(new Page("Page A", R.drawable.a, "href", "action_type"));
+        pageViews.add(new Page("Page B", R.drawable.b, "href", "action_type"));
+        pageViews.add(new Page("Page C", R.drawable.c, "href", "action_type"));
+        pageViews.add(new Page("Page D", R.drawable.d, "href", "action_type"));
         mAnimCircleIndicator.setImageLoader(new GlideLoader());
         mAnimCircleIndicator.addPages(pageViews);
         mAnimCircleIndicator.setPosition(InfiniteIndicator.IndicatorPosition.Center);

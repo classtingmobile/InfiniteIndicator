@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,8 @@ public class RecyleAdapter extends RecyclingPagerAdapter {
     private OnPageClickListener mOnPageClickListener;
     private List<Page> pages = new ArrayList<>();
     private boolean isLoop = true;
+    private int pageWidth = 0;
+    private int pageHeight = 0;
 
     public RecyleAdapter(Context context) {
         mContext = context;
@@ -33,6 +37,14 @@ public class RecyleAdapter extends RecyclingPagerAdapter {
         mContext = context;
         mOnPageClickListener = onPageClickListener;
         mInflater = LayoutInflater.from(context);
+    }
+
+    public void setPageWidth(int width) {
+        pageWidth = width;
+    }
+
+    public void setPageHeight(int height) {
+        pageHeight = height;
     }
 
     /**
@@ -61,7 +73,7 @@ public class RecyleAdapter extends RecyclingPagerAdapter {
         if (convertView != null) {
             holder = (ViewHolder) convertView.getTag();
         } else {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.simple_slider_view, null);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.page_view, null);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         }
@@ -69,7 +81,7 @@ public class RecyleAdapter extends RecyclingPagerAdapter {
         final Page page = pages.get(getPosition(position));
 
         if(page.onPageClickListener != null){
-            holder.target.setOnClickListener(new View.OnClickListener() {
+            convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     page.onPageClickListener.onPageClick(getPosition(position), page);
@@ -77,15 +89,19 @@ public class RecyleAdapter extends RecyclingPagerAdapter {
             });
         }
 
-        mImageLoader.load(mContext,holder.target,page.res);
+        holder.title.setText(page.data);
+        holder.cover.setLayoutParams(new RelativeLayout.LayoutParams(pageWidth, pageHeight));
+        mImageLoader.load(mContext, holder.cover, page.url);
         return convertView;
     }
 
     private static class ViewHolder {
-        final ImageView target;
+        final ImageView cover;
+        final TextView title;
 
         public ViewHolder(View view) {
-            target = (ImageView) view.findViewById(R.id.slider_image);
+            cover = (ImageView) view.findViewById(R.id.cover);
+            title = (TextView) view.findViewById(R.id.banner_title);
         }
     }
 

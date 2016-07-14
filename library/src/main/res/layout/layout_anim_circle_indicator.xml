@@ -8,7 +8,7 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:clipToPadding="false"/>
 
     <cn.lightsky.infiniteindicator.indicator.AnimIndicator
         android:id="@+id/default_center_indicator"

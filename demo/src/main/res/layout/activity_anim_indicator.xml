@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         app:indicator_type="indicator_anim_circle"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <cn.lightsky.infiniteindicator.InfiniteIndicator
         android:id="@+id/infinite_anim_line"
