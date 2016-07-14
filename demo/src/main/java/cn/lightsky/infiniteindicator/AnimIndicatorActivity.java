@@ -36,8 +36,8 @@ public class AnimIndicatorActivity extends FragmentActivity implements ViewPager
     private void initData() {
         pageViews = new ArrayList<>();
         pageViews.add(new Page("A ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/a.jpg", "href", "action_type", this));
-        pageViews.add(new Page("B ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/b.jpg", "href", "action_type", this));
-        pageViews.add(new Page("C ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/c.jpg", "href", "action_type", this));
+//        pageViews.add(new Page("B ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/b.jpg", "href", "action_type", this));
+//        pageViews.add(new Page("C ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/c.jpg", "href", "action_type", this));
 //        pageViews.add(new Page("D ", "https://raw.githubusercontent.com/lightSky/InfiniteIndicator/master/res/d.jpg",this));
         
     }
@@ -81,7 +81,7 @@ public class AnimIndicatorActivity extends FragmentActivity implements ViewPager
         mAnimCircleIndicator.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 600));
         mAnimCircleIndicator.setPageWidth(1080);
         mAnimCircleIndicator.setPageHeight(600);
-        mAnimCircleIndicator.setClipPadding(0);
+        mAnimCircleIndicator.setClipPadding(24);
         mAnimCircleIndicator.reset();
     }
 
