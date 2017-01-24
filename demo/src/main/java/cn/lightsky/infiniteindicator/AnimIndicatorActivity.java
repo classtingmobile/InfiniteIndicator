@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
@@ -79,6 +80,7 @@ public class AnimIndicatorActivity extends FragmentActivity implements ViewPager
 
         mAnimCircleIndicator.setAuto(true);
         mAnimCircleIndicator.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 600));
+        mAnimCircleIndicator.setFontSize(30);
         mAnimCircleIndicator.setPageWidth(1080);
         mAnimCircleIndicator.setPageHeight(600);
         mAnimCircleIndicator.setClipPadding(24);

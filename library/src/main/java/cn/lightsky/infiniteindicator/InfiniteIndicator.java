@@ -81,6 +81,7 @@ public class InfiniteIndicator extends RelativeLayout implements RecyclingPagerA
      *  for learningcard
      *  width, height, clipToPadding
      */
+    private float fontSize = 14;
     private int pageWidth = 0;
     private int pageHeight = 0;
     private int pagerClipPadding = 0;
@@ -147,6 +148,10 @@ public class InfiniteIndicator extends RelativeLayout implements RecyclingPagerA
         isAutoScroll = auto;
     }
 
+    public void setFontSize(float size) {
+        fontSize = size;
+    }
+
     public void setPageWidth(int width) {
         pageWidth = width;
     }
@@ -163,6 +168,7 @@ public class InfiniteIndicator extends RelativeLayout implements RecyclingPagerA
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, pageHeight);
         mViewPager.setLayoutParams(params);
         mViewPager.setPadding(pagerClipPadding, 0, pagerClipPadding, 0);
+        mRecyleAdapter.setFontSize(fontSize);
         mRecyleAdapter.setPageWidth(pageWidth);
         mRecyleAdapter.setPageHeight(pageHeight);
         mRecyleAdapter.notifyDataSetChanged();

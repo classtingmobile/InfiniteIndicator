@@ -13,7 +13,7 @@ import cn.lightsky.infiniteindicator.InfiniteIndicator;
 import cn.lightsky.infiniteindicator.page.OnPageClickListener;
 import cn.lightsky.infiniteindicator.page.Page;
 
-public class AddSlidersActivity extends FragmentActivity implements OnPageClickListener {
+public class addSlidersActivity extends FragmentActivity implements OnPageClickListener {
     private ArrayList<Page> pageViews;
     private InfiniteIndicator mAnimCircleIndicator;
     private List refreshPageViews = new ArrayList();

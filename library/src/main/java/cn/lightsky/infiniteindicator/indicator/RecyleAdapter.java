@@ -27,6 +27,7 @@ public class RecyleAdapter extends RecyclingPagerAdapter {
     private boolean isLoop = true;
     private int pageWidth = 0;
     private int pageHeight = 0;
+    private float fontSize = 14;
 
     public RecyleAdapter(Context context) {
         mContext = context;
@@ -45,6 +46,10 @@ public class RecyleAdapter extends RecyclingPagerAdapter {
 
     public void setPageHeight(int height) {
         pageHeight = height;
+    }
+
+    public void setFontSize(float size) {
+        fontSize = size;
     }
 
     /**
@@ -90,6 +95,7 @@ public class RecyleAdapter extends RecyclingPagerAdapter {
         }
 
         holder.title.setText(page.data);
+        holder.title.setTextSize(fontSize);
         holder.cover.setLayoutParams(new RelativeLayout.LayoutParams(pageWidth, pageHeight));
         mImageLoader.load(mContext, holder.cover, page.url);
         return convertView;
